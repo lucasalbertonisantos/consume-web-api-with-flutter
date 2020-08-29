@@ -16,9 +16,10 @@ class Dashboard extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Image.asset('images/bytebank_logo.png'),
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
+          Container(
+            height: 120,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
               children: <Widget>[
                 _FeatureItem(
                   'Transfer',
@@ -31,7 +32,8 @@ class Dashboard extends StatelessWidget {
                   'Transaction Feed',
                   Icons.description,
                   onClick: () => debugPrint('clicado!'),
-                ),_FeatureItem(
+                ),
+                _FeatureItem(
                   'Transaction Feed',
                   Icons.description,
                   onClick: () => debugPrint('clicado!'),
@@ -70,7 +72,6 @@ class _FeatureItem extends StatelessWidget {
           onTap: () => onClick(),
           child: Container(
             padding: const EdgeInsets.all(8.0),
-            height: 100,
             width: 150,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
