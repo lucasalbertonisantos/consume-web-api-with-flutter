@@ -9,7 +9,8 @@ class TransactionWebClient {
   Future<List<Transaction>> findAll() async {
     final Response response =
         await client.get(baseUrl).timeout(Duration(seconds: 5));
-    return _toTransactions(response);
+    final List<dynamic> decodedJson = jsonDecode(response.body);
+    return decodedJson.map((dynamic json) => Transaction.fromJson(json)).toList();
   }
 
   Future<Transaction> save(Transaction transaction) async {
@@ -23,16 +24,5 @@ class TransactionWebClient {
       body: transactionJson,
     );
     return Transaction.fromJson(jsonDecode(response.body));
-  }
-
-  List<Transaction> _toTransactions(Response response) {
-    final List<dynamic> decodedJson = jsonDecode(response.body);
-    return decodedJson.map((dynamic json) => Transaction.fromJson(json)).toList();
-    // final List<Transaction> transactions = List();
-    // print('decoded json $decodedJson');
-    // for (Map<String, dynamic> transactionJson in decodedJson) {
-    //   transactions.add(Transaction.fromJson(transactionJson));
-    // }
-    // return transactions;
   }
 }
