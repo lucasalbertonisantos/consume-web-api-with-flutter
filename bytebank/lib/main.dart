@@ -7,7 +7,6 @@ import 'http/webclient.dart';
 
 void main() {
   runApp(MyApp());
-  save(Transaction(900.0, Contact(0, 'Teste', 2000))).then((value)=>debugPrint(value.toString()));
 }
 
 class MyApp extends StatelessWidget {
