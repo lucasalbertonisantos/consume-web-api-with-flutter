@@ -34,5 +34,12 @@ public class TransactionAPI {
 		transactions.put(id, transaction);
 		return transaction;
 	}
+	
+	@GetMapping("/clean")
+	public void clean() {
+		for(String key : transactions.keySet()) {
+			transactions.remove(key);
+		}
+	}
 
 }
