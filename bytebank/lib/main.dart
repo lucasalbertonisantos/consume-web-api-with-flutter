@@ -1,9 +1,5 @@
-import 'package:bytebank/models/contact.dart';
-import 'package:bytebank/models/transaction.dart';
 import 'package:bytebank/screens/dashboard.dart';
 import 'package:flutter/material.dart';
-
-import 'http/webclient.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,4 +21,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
