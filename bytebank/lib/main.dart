@@ -5,7 +5,7 @@ import 'http/webclient.dart';
 
 void main() {
   runApp(MyApp());
-  findAll();
+  findAll().then((transactions)=>print('new transactions $transactions'));
 }
 
 class MyApp extends StatelessWidget {
